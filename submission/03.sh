@@ -11,4 +11,4 @@ vout2=$(echo $rawtx | jq -r '.vout[1].n')
 recipient="2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP"
 data=$(echo -n "btrust builder 2026" | xxd -p)
 
-bitcoin-cli -regtest createrawtransaction "[{\"txid\":\"$TXID\",\"vout\":$vout1},{\"txid\":\"$TXID\",\"vout\":$vout2}]" "{\"$recipient\":0.2, \"data\":\"$data\"}"
+bitcoin-cli -regtest createrawtransaction "[{\"txid\":\"$TXID\",\"vout\":$vout1},{\"txid\":\"$TXID\",\"vout\":$vout2}]" "{\"data\":\"$data\",\"$recipient\":0.2}"
